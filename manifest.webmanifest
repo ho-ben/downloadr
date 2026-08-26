@@ -1,0 +1,27 @@
+{
+  "id": "./",
+  "name": "Downloadr",
+  "short_name": "Downloadr",
+  "description": "Save complete Poe conversations as private, on-device text files.",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#f6f2e9",
+  "theme_color": "#f6f2e9",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Set up Poe button", "short_name": "Setup", "url": "./#setup", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ],
+  "file_handlers": [
+    { "action": "./", "accept": { "text/plain": [".txt", ".text", ".log", ".md"] } }
+  ],
+  "launch_handler": { "client_mode": ["focus-existing", "auto"] }
+}
