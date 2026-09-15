@@ -1,6 +1,17 @@
 # Downloadr
 
-Downloadr is a private, mobile-first PWA for exporting complete Poe conversations as plain-text files.
+Downloadr is a private, mobile-first tool for exporting complete Poe conversations as plain-text files. It now has two versions:
+
+- an Android browser app that signs in to Poe directly and exports the open chat with one tap;
+- the original installable PWA, which uses a bookmark helper in Chrome.
+
+## Android browser app (experimental)
+
+The Android app in [`android/`](android/) embeds a secure WebView. Sign in to Poe inside the app, open a conversation, and tap **Export**. The transcript moves from Poe's page to the Android app in small on-device chunks; nothing is uploaded to Downloadr. You can copy it or save it directly to `Downloads/Downloadr/`.
+
+Because Google blocks OAuth sign-in inside embedded browsers, use Poe's email sign-in option if the Google button refuses to continue. The app targets Android 10 or newer.
+
+Every push that changes `android/` produces an installable debug APK in the repository's **Actions → Build Downloadr for Android → Artifacts** section. Android will ask you to permit installation from your browser or GitHub app the first time.
 
 ## Why it uses a bookmark helper
 
@@ -17,7 +28,7 @@ The helper:
 
 The file-download path avoids Android clipboard-size limits. Poe's internal web query can change; the helper discovers current operation metadata from Poe's loaded client when possible and has a tested fallback for the current release.
 
-## Development
+## PWA development
 
 ```sh
 npm test
@@ -25,6 +36,10 @@ npm run serve
 ```
 
 Open <http://localhost:4173>.
+
+## Android development
+
+Open the `android` directory in Android Studio, or run the **Build Downloadr for Android** GitHub Action. The app uses no analytics, ad SDK, backend, or stored credentials. Poe owns its WebView cookies, just as Poe owns cookies in a normal browser.
 
 ## Deployment
 
